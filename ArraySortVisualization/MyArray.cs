@@ -13,15 +13,15 @@
 
         public int this[int i]
         {
-            get 
+            get
             {
                 Visualization.ReloadCollums();
-                return _array[i]; 
+                return _array[i];
             }
             set
             {
                 Visualization.ReloadCollums();
-                _array[i] = value; 
+                _array[i] = value;
             }
         }
     }

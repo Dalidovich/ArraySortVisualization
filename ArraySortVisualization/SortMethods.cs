@@ -1,5 +1,5 @@
 ﻿namespace ArraySortVisualization
-{   
+{
     public static class SortMethods
     {
         public delegate void SortMethod(MyArray array);

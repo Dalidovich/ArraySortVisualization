@@ -7,8 +7,8 @@ namespace ArraySortVisualization
 {
     public static class Visualization
     {
-        private static bool _withFrameLimit=false;
-        private static int _frameLimit=1;
+        private static bool _withFrameLimit = false;
+        private static int _frameLimit = 1;
         private static int _maxLength = 900;
         private static int _maxValue = 100;
         private static int _stepOnSizeX = 300;
@@ -44,7 +44,7 @@ namespace ArraySortVisualization
         private static void _calculateScale()
         {
             var newXSize = 0;
-            while (_myArray.Length*2 > newXSize)
+            while (_myArray.Length * 2 > newXSize)
             {
                 newXSize += _stepOnSizeX;
             }
@@ -55,8 +55,8 @@ namespace ArraySortVisualization
         }
         private static bool _checkArrayState()
         {
-            if(_myArray.Length>=_maxLength) return false;
-            if(_myArray._array.Max()>_maxValue) return false;
+            if (_myArray.Length >= _maxLength) return false;
+            if (_myArray._array.Max() > _maxValue) return false;
             return true;
         }
 
@@ -64,7 +64,7 @@ namespace ArraySortVisualization
         {
             _myArray = arr;
 
-            _withFrameLimit= settings.WithFrameLimit;
+            _withFrameLimit = settings.WithFrameLimit;
             _frameLimit = settings.FrameLimit;
             _maxLength = settings.MaxLength;
             _maxValue = settings.MaxValue;
@@ -79,7 +79,7 @@ namespace ArraySortVisualization
 
             for (int i = 0; i < _myArray.Length; i++)
             {
-                var rec= new RectangleShape(new Vector2f(1, 1));
+                var rec = new RectangleShape(new Vector2f(1, 1));
                 rec.OutlineThickness = -0.5f;
                 rec.OutlineColor = Color.Black;
                 rec.Position = new Vector2f(i * _collumnXScale, _sizeX / 2);
@@ -90,7 +90,7 @@ namespace ArraySortVisualization
 
         public static void Show()
         {
-            RenderWindow window = new RenderWindow(new VideoMode((uint)_sizeX, (uint)_sizeX/2), "sort array");
+            RenderWindow window = new RenderWindow(new VideoMode((uint)_sizeX, (uint)_sizeX / 2), "sort array");
             window.SetActive();
             if (_withFrameLimit)
             {
@@ -107,17 +107,17 @@ namespace ArraySortVisualization
                 {
                     ReloadCollums();
                 }
-                if(!_canDraw) continue;
+                if (!_canDraw) continue;
                 window.DispatchEvents();
 
-                for(var i=0;i<_collumns.Count;i++)
+                for (var i = 0; i < _collumns.Count; i++)
                 {
                     window.Draw(_collumns[i]);
                 }
-                
+
 
                 window.Display();
-                _canDraw = false; 
+                _canDraw = false;
                 _pauseEvent.Set();
             }
         }

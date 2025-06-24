@@ -8,7 +8,7 @@
         public int MaxValue;
         public int StepOnSizeX;
 
-        public VisualisationSettings(bool withFrameLimit, int maxLength, int maxValue, int stepOnSizeX, int frameLimit=60)
+        public VisualisationSettings(bool withFrameLimit, int maxLength, int maxValue, int stepOnSizeX, int frameLimit = 60)
         {
             WithFrameLimit = withFrameLimit;
             FrameLimit = frameLimit;
